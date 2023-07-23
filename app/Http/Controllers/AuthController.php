@@ -15,12 +15,24 @@ class AuthController extends Controller
         $this->walletAuthService = $walletAuthService;
     }
 
+    /**
+     * Generate a challenge for wallet authentication.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function challenge(Request $request)
     {
         $challenge = $this->walletAuthService->getChallenge($request->address);
         return ['challenge' => $challenge];
     }
 
+    /**
+     * Authenticate the user using the provided wallet address and signature.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Response
+     */
     public function login(Request $request)
     {
         $result = $this->walletAuthService->login($request->address, $request->signature);

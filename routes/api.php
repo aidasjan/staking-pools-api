@@ -14,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::middleware('auth:sanctum')->get('/users/self', 'App\Http\Controllers\UserController@self')->name('api.user.self');
+Route::middleware('auth:sanctum')->put('/users/self', 'App\Http\Controllers\UserController@updateSelf')->name('api.user.updateSelf');
 
-Route::post('/challenge', 'App\Http\Controllers\AuthController@challenge')->name('api.auth.challenge');
-Route::post('/login', 'App\Http\Controllers\AuthController@login')->name('api.auth.login');
+Route::post('/auth/challenge', 'App\Http\Controllers\AuthController@challenge')->name('api.auth.challenge');
+Route::post('/auth/login', 'App\Http\Controllers\AuthController@login')->name('api.auth.login');
 
