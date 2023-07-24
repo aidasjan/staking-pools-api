@@ -59,6 +59,14 @@ The backend provides the following API endpoints for communication with the fron
 - `POST /auth/challenge`: Generate a challenge for wallet authentication.
 - `POST /auth/login`: Authenticate the user using the provided wallet address and signature.
 
+## Running Tests
+
+Run unit tests using the following command:
+
+```bash
+php artisan test
+```
+
 ## Licence
 
 Copyright (c) 2023 Aidas Jankauskas
